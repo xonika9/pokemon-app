@@ -34,6 +34,7 @@
 
 .pokemon-image {
   display: flex;
+  align-items: center;
   justify-content: center;
   padding: 20px;
 }
@@ -41,9 +42,13 @@
 .pokemon-image img {
   width: 150px;
   height: 150px;
+  object-fit: contain;
 }
 
 .pokemon-details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   padding: 20px;
   background-color: #f2f2f2;
   text-align: center;
@@ -54,6 +59,17 @@
   text-transform: capitalize;
   font-weight: bold;
   font-size: 24px;
+}
+
+.pokemon-stats {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pokemon-stats div {
+  margin: 5px;
+  font-size: 16px;
 }
 
 @media (max-width: 768px) {
