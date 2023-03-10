@@ -1,38 +1,76 @@
 .App {
+  min-height: 100vh;
+  background-color: #f2f2f2;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  padding: 20px;
+  background-color: #fff;
+  color: #000;
+}
+
+.App-title {
+  margin: 0;
+  font-size: 36px;
+}
+
+.pokemon-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.pokemon-card {
+  overflow: hidden;
+  margin: 20px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.pokemon-image {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.pokemon-image img {
+  width: 150px;
+  height: 150px;
+}
+
+.pokemon-details {
+  padding: 20px;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.pokemon-name {
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .pokemon-container {
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .pokemon-card {
+    margin: 10px;
+  }
+
+  .pokemon-image img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pokemon-name {
+    font-size: 18px;
   }
 }
