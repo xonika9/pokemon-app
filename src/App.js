@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import LazyLoad from 'parm-react-lazyload';
 import './App.css';
@@ -7,12 +7,6 @@ function App() {
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState('');
-  const [sortHp, setSortHp] = useState([]);
-  const [sortAttack, setSortAttack] = useState([]);
-  const [sortDefense, setSortDefense] = useState([]);
-  const [sortSpecialAttack, setSortSpecialAttack] = useState([]);
-  const [sortSpecialDefense, setSortSpecialDefense] = useState([]);
-  const [sortSpeed, setSortSpeed] = useState([]);
   const [numCards, setNumCards] = useState(20);
 
   useEffect(() => {
@@ -20,6 +14,7 @@ function App() {
       try {
         const response = await axios.get(
           'https://pokeapi.co/api/v2/pokemon?limit=1500',
+          { cache: true },
         );
         const data = response.data.results;
         const pokemonData = await Promise.all(
@@ -37,59 +32,41 @@ function App() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    setSortHp(
-      [...pokemonData].sort(
-        (a, b) => b.stats[0].base_stat - a.stats[0].base_stat,
-      ),
-    );
-    setSortAttack(
-      [...pokemonData].sort(
-        (a, b) => b.stats[1].base_stat - a.stats[1].base_stat,
-      ),
-    );
-    setSortDefense(
-      [...pokemonData].sort(
-        (a, b) => b.stats[2].base_stat - a.stats[2].base_stat,
-      ),
-    );
-    setSortSpecialAttack(
-      [...pokemonData].sort(
-        (a, b) => b.stats[3].base_stat - a.stats[3].base_stat,
-      ),
-    );
-    setSortSpecialDefense(
-      [...pokemonData].sort(
-        (a, b) => b.stats[4].base_stat - a.stats[4].base_stat,
-      ),
-    );
-    setSortSpeed(
-      [...pokemonData].sort(
-        (a, b) => b.stats[5].base_stat - a.stats[5].base_stat,
-      ),
-    );
-  }, [pokemonData]);
+  const sortedPokemon = useMemo(() => {
+    switch (sortOrder) {
+      case 'hp':
+        return [...pokemonData].sort(
+          (a, b) => b.stats[0].base_stat - a.stats[0].base_stat,
+        );
+      case 'attack':
+        return [...pokemonData].sort(
+          (a, b) => b.stats[1].base_stat - a.stats[1].base_stat,
+        );
+      case 'defense':
+        return [...pokemonData].sort(
+          (a, b) => b.stats[2].base_stat - a.stats[2].base_stat,
+        );
+      case 'special-attack':
+        return [...pokemonData].sort(
+          (a, b) => b.stats[3].base_stat - a.stats[3].base_stat,
+        );
+      case 'special-defense':
+        return [...pokemonData].sort(
+          (a, b) => b.stats[4].base_stat - a.stats[4].base_stat,
+        );
+      case 'speed':
+        return [...pokemonData].sort(
+          (a, b) => b.stats[5].base_stat - a.stats[5].base_stat,
+        );
+      default:
+        return pokemonData;
+    }
+  }, [pokemonData, sortOrder]);
 
   const handleSortChange = (event) => {
     const newSortOrder = event.target.value;
     setSortOrder(newSortOrder);
   };
-
-  let sortedPokemon = pokemonData;
-
-  if (sortOrder === 'hp') {
-    sortedPokemon = sortHp;
-  } else if (sortOrder === 'attack') {
-    sortedPokemon = sortAttack;
-  } else if (sortOrder === 'defense') {
-    sortedPokemon = sortDefense;
-  } else if (sortOrder === 'special-attack') {
-    sortedPokemon = sortSpecialAttack;
-  } else if (sortOrder === 'special-defense') {
-    sortedPokemon = sortSpecialDefense;
-  } else if (sortOrder === 'speed') {
-    sortedPokemon = sortSpeed;
-  }
 
   const addCards = () => {
     setNumCards(numCards + 20);
@@ -141,7 +118,7 @@ function App() {
         </div>
       )}
       {numCards < sortedPokemon.length && (
-        <div class="more-container">
+        <div className="more-container">
           <button className="more-button" onClick={addCards}>
             More
           </button>
