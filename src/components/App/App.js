@@ -68,7 +68,7 @@ function App() {
   );
 
   return (
-    <div className="App">
+    <div className="app">
       <Header sortOrder={sortOrder} handleSortChange={handleSortChange} />
       <PokemonCardList loading={loading} visiblePokemon={visiblePokemon} />
       <MoreButton

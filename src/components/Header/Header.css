@@ -1,4 +1,4 @@
-.App-header {
+.app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,7 +8,7 @@
   color: #333;
 }
 
-.App-title {
+.app-title {
   margin: 0;
   font-size: 2rem;
 }
