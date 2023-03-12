@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import LazyLoad from 'parm-react-lazyload';
 import './App.css';
 
 function App() {
@@ -120,7 +121,9 @@ function App() {
           {visiblePokemon.map((pokemon, index) => (
             <div className="pokemon-card" key={index}>
               <div className="pokemon-image">
-                <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+                <LazyLoad height={200}>
+                  <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+                </LazyLoad>
               </div>
               <div className="pokemon-details">
                 <h2 className="pokemon-name">{pokemon.name}</h2>
