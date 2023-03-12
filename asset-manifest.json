@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.359f4a63.css",
+    "main.js": "/static/js/main.fbb4ee01.js",
+    "static/media/poke-logo.png": "/static/media/poke-logo.329dc202f69cd0945d9e.png",
+    "index.html": "/index.html",
+    "main.359f4a63.css.map": "/static/css/main.359f4a63.css.map",
+    "main.fbb4ee01.js.map": "/static/js/main.fbb4ee01.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.359f4a63.css",
+    "static/js/main.fbb4ee01.js"
+  ]
+}
