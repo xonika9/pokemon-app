@@ -1,0 +1,25 @@
+.more-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.more-button {
+  padding: 10px 142px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.more-button:hover {
+  background-color: #3e8e41;
+}
+
+@media only screen and (max-width: 768px) {
+  .more-button {
+    padding: 10px 80px;
+  }
+}

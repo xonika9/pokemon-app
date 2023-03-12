@@ -32,20 +32,24 @@ function App() {
     fetchData();
   }, []);
 
-  const sortedPokemon = useMemo(() => {
-    const sortingFunctions = {
+  const sortingFunctions = useMemo(
+    () => ({
       hp: (a, b) => b.stats[0].base_stat - a.stats[0].base_stat,
       attack: (a, b) => b.stats[1].base_stat - a.stats[1].base_stat,
       defense: (a, b) => b.stats[2].base_stat - a.stats[2].base_stat,
       'special-attack': (a, b) => b.stats[3].base_stat - a.stats[3].base_stat,
       'special-defense': (a, b) => b.stats[4].base_stat - a.stats[4].base_stat,
       speed: (a, b) => b.stats[5].base_stat - a.stats[5].base_stat,
-    };
+    }),
+    [],
+  );
+
+  const sortedPokemon = useMemo(() => {
     const sortingFunction = sortingFunctions[sortOrder];
     return sortingFunction
       ? [...pokemonData].sort(sortingFunction)
       : pokemonData;
-  }, [pokemonData, sortOrder]);
+  }, [pokemonData, sortOrder, sortingFunctions]);
 
   const handleSortChange = (event) => {
     setSortOrder(event.target.value);
@@ -55,7 +59,10 @@ function App() {
     setNumCards(numCards + 20);
   };
 
-  const visiblePokemon = sortedPokemon.slice(0, numCards);
+  const visiblePokemon = useMemo(
+    () => sortedPokemon.slice(0, numCards),
+    [numCards, sortedPokemon],
+  );
 
   return (
     <div className="App">

@@ -1,0 +1,60 @@
+.App-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.App-title {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.logo {
+  background: url(../../images/poke-logo.png) no-repeat 50%/contain;
+}
+
+.header__logo {
+  width: 100px;
+  height: 38px;
+}
+
+.select-container {
+  display: flex;
+  align-items: center;
+}
+
+.select-container label {
+  margin-right: 0.5rem;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.select-container select {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  appearance: none;
+}
+
+.select-container select:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 768px) {
+  .App-header {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
