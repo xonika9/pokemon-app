@@ -33,39 +33,22 @@ function App() {
   }, []);
 
   const sortedPokemon = useMemo(() => {
-    switch (sortOrder) {
-      case 'hp':
-        return [...pokemonData].sort(
-          (a, b) => b.stats[0].base_stat - a.stats[0].base_stat,
-        );
-      case 'attack':
-        return [...pokemonData].sort(
-          (a, b) => b.stats[1].base_stat - a.stats[1].base_stat,
-        );
-      case 'defense':
-        return [...pokemonData].sort(
-          (a, b) => b.stats[2].base_stat - a.stats[2].base_stat,
-        );
-      case 'special-attack':
-        return [...pokemonData].sort(
-          (a, b) => b.stats[3].base_stat - a.stats[3].base_stat,
-        );
-      case 'special-defense':
-        return [...pokemonData].sort(
-          (a, b) => b.stats[4].base_stat - a.stats[4].base_stat,
-        );
-      case 'speed':
-        return [...pokemonData].sort(
-          (a, b) => b.stats[5].base_stat - a.stats[5].base_stat,
-        );
-      default:
-        return pokemonData;
-    }
+    const sortingFunctions = {
+      hp: (a, b) => b.stats[0].base_stat - a.stats[0].base_stat,
+      attack: (a, b) => b.stats[1].base_stat - a.stats[1].base_stat,
+      defense: (a, b) => b.stats[2].base_stat - a.stats[2].base_stat,
+      'special-attack': (a, b) => b.stats[3].base_stat - a.stats[3].base_stat,
+      'special-defense': (a, b) => b.stats[4].base_stat - a.stats[4].base_stat,
+      speed: (a, b) => b.stats[5].base_stat - a.stats[5].base_stat,
+    };
+    const sortingFunction = sortingFunctions[sortOrder];
+    return sortingFunction
+      ? [...pokemonData].sort(sortingFunction)
+      : pokemonData;
   }, [pokemonData, sortOrder]);
 
   const handleSortChange = (event) => {
-    const newSortOrder = event.target.value;
-    setSortOrder(newSortOrder);
+    setSortOrder(event.target.value);
   };
 
   const addCards = () => {
