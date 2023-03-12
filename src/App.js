@@ -12,6 +12,7 @@ function App() {
   const [sortSpecialAttack, setSortSpecialAttack] = useState([]);
   const [sortSpecialDefense, setSortSpecialDefense] = useState([]);
   const [sortSpeed, setSortSpeed] = useState([]);
+  const [numCards, setNumCards] = useState(20);
 
   useEffect(() => {
     async function fetchData() {
@@ -89,6 +90,12 @@ function App() {
     sortedPokemon = sortSpeed;
   }
 
+  const addCards = () => {
+    setNumCards(numCards + 20);
+  };
+
+  const visiblePokemon = sortedPokemon.slice(0, numCards);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -110,13 +117,10 @@ function App() {
         <p className="loading">Loading...</p>
       ) : (
         <div className="pokemon-container">
-          {sortedPokemon.map((pokemon, index) => (
+          {visiblePokemon.map((pokemon, index) => (
             <div className="pokemon-card" key={index}>
               <div className="pokemon-image">
-                <img
-                  src={pokemon.sprites.front_default}
-                  alt={`Image of ${pokemon.name}`}
-                />
+                <img src={pokemon.sprites.front_default} alt={pokemon.name} />
               </div>
               <div className="pokemon-details">
                 <h2 className="pokemon-name">{pokemon.name}</h2>
@@ -131,6 +135,13 @@ function App() {
               </div>
             </div>
           ))}
+        </div>
+      )}
+      {numCards < sortedPokemon.length && (
+        <div class="more-container">
+          <button className="more-button" onClick={addCards}>
+            More
+          </button>
         </div>
       )}
     </div>
