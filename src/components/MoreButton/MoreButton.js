@@ -1,9 +1,9 @@
 import './MoreButton.css';
 
-function MoreButton({ numCards, sortedPokemon, addCards }) {
+function MoreButton({ numCards, filteredPokemon, addCards }) {
   return (
     <>
-      {numCards < sortedPokemon.length && (
+      {numCards < filteredPokemon.length && (
         <div className="more-container">
           <button className="more-button" onClick={addCards}>
             More

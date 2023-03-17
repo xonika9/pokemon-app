@@ -22,6 +22,22 @@
   height: 38px;
 }
 
+.search-container {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.search-container::placeholder {
+  color: #333;
+  opacity: 1;
+}
+
 .select-container {
   display: flex;
   align-items: center;

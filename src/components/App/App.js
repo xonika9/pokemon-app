@@ -11,6 +11,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState('');
   const [numCards, setNumCards] = useState(20);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -58,22 +59,34 @@ function App() {
     setSortOrder(event.target.value);
   };
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   const addCards = () => {
     setNumCards(numCards + 20);
   };
 
+  const filteredPokemon = sortedPokemon.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
   const visiblePokemon = useMemo(
-    () => sortedPokemon.slice(0, numCards),
-    [numCards, sortedPokemon],
+    () => filteredPokemon.slice(0, numCards),
+    [numCards, filteredPokemon],
   );
 
   return (
     <div className="app">
-      <Header sortOrder={sortOrder} handleSortChange={handleSortChange} />
+      <Header
+        sortOrder={sortOrder}
+        handleSortChange={handleSortChange}
+        handleSearchChange={handleSearchChange}
+      />
       <PokemonCardList loading={loading} visiblePokemon={visiblePokemon} />
       <MoreButton
         numCards={numCards}
-        sortedPokemon={sortedPokemon}
+        filteredPokemon={filteredPokemon}
         addCards={addCards}
       />
     </div>
