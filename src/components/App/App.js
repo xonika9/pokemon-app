@@ -110,6 +110,7 @@ function App() {
         visiblePokemon={visiblePokemon}
         favorites={favorites}
         handleAddFavorite={handleAddFavorite}
+        handleRemoveFavorite={handleRemoveFavorite}
       />
       <MoreButton
         numCards={numCards}

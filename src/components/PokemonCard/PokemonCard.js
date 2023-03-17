@@ -1,7 +1,12 @@
 import './PokemonCard.css';
 import LazyLoad from 'parm-react-lazyload';
 
-function PokemonCard({ visiblePokemon, favorites, handleAddFavorite }) {
+function PokemonCard({
+  visiblePokemon,
+  favorites,
+  handleAddFavorite,
+  handleRemoveFavorite,
+}) {
   return (
     <>
       {visiblePokemon.map((pokemon, index) => (
@@ -11,11 +16,25 @@ function PokemonCard({ visiblePokemon, favorites, handleAddFavorite }) {
               <img src={pokemon.sprites.front_default} alt={pokemon.name} />
             </LazyLoad>
           </div>
-          {!favorites.some((favorite) => favorite.name === pokemon.name) && (
-            <button onClick={() => handleAddFavorite(pokemon)}>Add</button>
-          )}
+
           <div className="pokemon-details">
-            <h2 className="pokemon-name">{pokemon.name}</h2>
+            <div className="card-header">
+              {!favorites.some(
+                (favorite) => favorite.name === pokemon.name,
+              ) && (
+                <button
+                  className="card-like card-like-save "
+                  onClick={() => handleAddFavorite(pokemon)}
+                ></button>
+              )}
+              {favorites.some((favorite) => favorite.name === pokemon.name) && (
+                <button
+                  className="card-like card-like-save card-like-active"
+                  onClick={() => handleRemoveFavorite(pokemon)}
+                ></button>
+              )}
+              <h2 className="pokemon-name">{pokemon.name}</h2>
+            </div>
             <div className="pokemon-stats">
               <p>HP: {pokemon.stats[0].base_stat}</p>
               <p>Attack: {pokemon.stats[1].base_stat}</p>

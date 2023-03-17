@@ -1,14 +1,12 @@
 import './Header.css';
 
-function Header(props) {
-  const {
-    sortOrder,
-    handleSortChange,
-    handleSearchChange,
-    searchTerm,
-    handleClearSearch,
-  } = props;
-
+function Header({
+  sortOrder,
+  handleSortChange,
+  handleSearchChange,
+  searchTerm,
+  handleClearSearch,
+}) {
   return (
     <header className="app-header">
       <a className="logo header__logo" href="/"></a>
