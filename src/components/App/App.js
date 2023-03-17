@@ -63,6 +63,10 @@ function App() {
     setSearchTerm(event.target.value);
   };
 
+  const handleClearSearch = () => {
+    setSearchTerm('');
+  };
+
   const addCards = () => {
     setNumCards(numCards + 20);
   };
@@ -82,6 +86,8 @@ function App() {
         sortOrder={sortOrder}
         handleSortChange={handleSortChange}
         handleSearchChange={handleSearchChange}
+        searchTerm={searchTerm}
+        handleClearSearch={handleClearSearch}
       />
       <PokemonCardList loading={loading} visiblePokemon={visiblePokemon} />
       <MoreButton

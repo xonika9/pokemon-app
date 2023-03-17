@@ -23,6 +23,12 @@
 }
 
 .search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
@@ -33,9 +39,25 @@
   font-size: 1.2rem;
 }
 
-.search-container::placeholder {
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+
+.search-input::placeholder {
   color: #333;
   opacity: 1;
+}
+
+.search-clear-button {
+  position: absolute;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: url("../../images/clear-button.svg") no-repeat;
+  background-size: contain;
+  cursor: pointer;
 }
 
 .select-container {
@@ -59,6 +81,7 @@
   color: #333;
   font-weight: bold;
   font-size: 1.2rem;
+  cursor: pointer;
 
   appearance: none;
 }
