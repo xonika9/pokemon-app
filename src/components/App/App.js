@@ -4,6 +4,7 @@ import './App.css';
 
 import Header from '../Header/Header';
 import PokemonCardList from '../PokemonCardList/PokemonCardList';
+import FavoriteCardList from '../FavoriteCardList/FavoriteCardList';
 import MoreButton from '../MoreButton/MoreButton';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const [sortOrder, setSortOrder] = useState('');
   const [numCards, setNumCards] = useState(20);
   const [searchTerm, setSearchTerm] = useState('');
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -71,6 +73,16 @@ function App() {
     setNumCards(numCards + 20);
   };
 
+  const handleAddFavorite = (pokemon) => {
+    setFavorites([...favorites, pokemon]);
+  };
+
+  const handleRemoveFavorite = (pokemon) => {
+    setFavorites(
+      favorites.filter((favorite) => favorite.name !== pokemon.name),
+    );
+  };
+
   const filteredPokemon = sortedPokemon.filter((pokemon) =>
     pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
@@ -89,7 +101,16 @@ function App() {
         searchTerm={searchTerm}
         handleClearSearch={handleClearSearch}
       />
-      <PokemonCardList loading={loading} visiblePokemon={visiblePokemon} />
+      <FavoriteCardList
+        favorites={favorites}
+        handleRemoveFavorite={handleRemoveFavorite}
+      />
+      <PokemonCardList
+        loading={loading}
+        visiblePokemon={visiblePokemon}
+        favorites={favorites}
+        handleAddFavorite={handleAddFavorite}
+      />
       <MoreButton
         numCards={numCards}
         filteredPokemon={filteredPokemon}

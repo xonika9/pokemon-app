@@ -1,19 +1,17 @@
-import './PokemonCard.css';
+import './FavoriteCard.css';
 import LazyLoad from 'parm-react-lazyload';
 
-function PokemonCard({ visiblePokemon, favorites, handleAddFavorite }) {
+function FavoriteCard({ favorites, handleRemoveFavorite }) {
   return (
     <>
-      {visiblePokemon.map((pokemon, index) => (
+      {favorites.map((pokemon, index) => (
         <div className="pokemon-card" key={index}>
           <div className="pokemon-image">
             <LazyLoad height={200}>
               <img src={pokemon.sprites.front_default} alt={pokemon.name} />
             </LazyLoad>
           </div>
-          {!favorites.some((favorite) => favorite.name === pokemon.name) && (
-            <button onClick={() => handleAddFavorite(pokemon)}>Add</button>
-          )}
+          <button onClick={() => handleRemoveFavorite(pokemon)}>Remove</button>
           <div className="pokemon-details">
             <h2 className="pokemon-name">{pokemon.name}</h2>
             <div className="pokemon-stats">
@@ -31,4 +29,4 @@ function PokemonCard({ visiblePokemon, favorites, handleAddFavorite }) {
   );
 }
 
-export default PokemonCard;
+export default FavoriteCard;
