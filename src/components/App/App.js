@@ -11,6 +11,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState('');
   const [numCards, setNumCards] = useState(20);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -67,10 +68,24 @@ function App() {
     [numCards, sortedPokemon],
   );
 
+  const handleSelectPokemon = (pokemon) => {
+    setSelectedPokemon(pokemon);
+  };
+
   return (
     <div className="app">
       <Header sortOrder={sortOrder} handleSortChange={handleSortChange} />
-      <PokemonCardList loading={loading} visiblePokemon={visiblePokemon} />
+      {selectedPokemon && (
+        <div>
+          <h3>Selected Pokemon: {selectedPokemon.name}</h3>
+          <button onClick={() => setSelectedPokemon(null)}>Clear</button>
+        </div>
+      )}
+      <PokemonCardList
+        loading={loading}
+        visiblePokemon={visiblePokemon}
+        handleSelectPokemon={handleSelectPokemon}
+      />
       <MoreButton
         numCards={numCards}
         sortedPokemon={sortedPokemon}

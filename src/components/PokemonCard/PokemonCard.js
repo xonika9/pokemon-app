@@ -1,7 +1,10 @@
 import './PokemonCard.css';
 import LazyLoad from 'parm-react-lazyload';
 
-function PokemonCard({ visiblePokemon }) {
+function PokemonCard({ visiblePokemon, handleSelectPokemon }) {
+  const handleSelect = (pokemon) => {
+    handleSelectPokemon(pokemon);
+  };
   return (
     <>
       {visiblePokemon.map((pokemon, index) => (
@@ -22,6 +25,7 @@ function PokemonCard({ visiblePokemon }) {
               <p>Speed: {pokemon.stats[5].base_stat}</p>
             </div>
           </div>
+          <button onClick={() => handleSelect(pokemon)}>Select</button>
         </div>
       ))}
     </>
