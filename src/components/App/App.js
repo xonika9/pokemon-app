@@ -124,6 +124,7 @@ function App() {
         handleRemoveFavorite={handleRemoveFavorite}
         minimized={minimized}
         setMinimized={setMinimized}
+        setFavorites={setFavorites}
       />
       <PokemonCardList
         loading={loading}

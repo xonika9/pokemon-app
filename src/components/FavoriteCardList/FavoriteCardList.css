@@ -14,6 +14,19 @@
   display: none;
 }
 
+.remove-all-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: url("../../images/remove-bin.svg") no-repeat 50%;
+  background-size: contain;
+  text-align: center;
+  cursor: pointer;
+}
+
 .fav-button {
   position: fixed;
   right: 20px;
@@ -27,19 +40,19 @@
 }
 
 .fav-min-button {
-  background: url("../../images/maximize.svg") no-repeat 50%;
+  background: url("../../images/minimize.svg") no-repeat 50%;
   background-size: contain;
 }
 
 .fav-max-button {
-  background: url("../../images/minimize.svg") no-repeat 50%;
+  background: url("../../images/maximize.svg") no-repeat 50%;
   background-size: contain;
 }
 
 .fav-container {
   display: flex;
   flex-wrap: wrap;
-  padding: 0;
+  padding: 1rem 0 1rem 0;
 }
 
 @media only screen and (max-width: 768px) {
