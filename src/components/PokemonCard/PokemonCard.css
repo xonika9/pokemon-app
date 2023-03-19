@@ -8,6 +8,37 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.card-like {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card-like-save {
+  background: url("../../images/like.svg") no-repeat 50%;
+  transition: background-image 0.3s ease;
+}
+
+.card-like-active {
+  background: transparent url("../../images/like-active.svg") no-repeat 50%;
+}
+
+.card-like-active:hover {
+  background: url("../../images/like-remove.svg") no-repeat 50%;
+  transition: background-image 0.3s ease;
+}
+
 .pokemon-image {
   display: flex;
   overflow: hidden;
@@ -26,7 +57,7 @@
 }
 
 .pokemon-name {
-  margin-bottom: 0.5rem;
+  margin: 0;
   color: #333;
   text-transform: capitalize;
   font-weight: bold;
