@@ -5,7 +5,7 @@ function FavoriteCard({ favorites, handleRemoveFavorite }) {
   return (
     <>
       {favorites.map((pokemon, index) => (
-        <div className="pokemon-card" key={index}>
+        <div className="pokemon-card fav-card" key={index}>
           <div className="pokemon-image fav-image">
             <LazyLoad height={200}>
               <img src={pokemon.image} alt={pokemon.name} />
@@ -18,7 +18,7 @@ function FavoriteCard({ favorites, handleRemoveFavorite }) {
                 className="card-like card-like-save card-like-active"
                 onClick={() => handleRemoveFavorite(pokemon)}
               ></button>
-              <h2 className="pokemon-name">{pokemon.name}</h2>
+              <h2 className="pokemon-name fav-name">{pokemon.name}</h2>
             </div>
             {/* <div className="pokemon-stats">
               <p>HP: {pokemon.stats[0].base_stat}</p>

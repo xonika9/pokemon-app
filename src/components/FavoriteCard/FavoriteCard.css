@@ -1,3 +1,11 @@
+.fav-card {
+  width: 110px;
+}
+
 .fav-image img {
-  height: 120px;
+  height: 80px;
+}
+
+.fav-name {
+  font-size: 1rem;
 }
