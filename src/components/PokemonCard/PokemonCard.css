@@ -10,6 +10,7 @@
 
 .card-header {
   display: flex;
+  align-items: center;
   justify-content: center;
   margin-bottom: 0.5rem;
 }
@@ -57,7 +58,6 @@
 
 .pokemon-name {
   margin: 0;
-  margin-bottom: 0.5rem;
   color: #333;
   text-transform: capitalize;
   font-weight: bold;
