@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/pokemon-app/static/css/main.566b3bba.css",
-    "main.js": "/pokemon-app/static/js/main.c92e4be1.js",
+    "main.css": "/pokemon-app/static/css/main.c71d2bfc.css",
+    "main.js": "/pokemon-app/static/js/main.7ee19dec.js",
     "static/media/poke-logo.png": "/pokemon-app/static/media/poke-logo.329dc202f69cd0945d9e.png",
     "index.html": "/pokemon-app/index.html",
     "static/media/clear-button.svg": "/pokemon-app/static/media/clear-button.212be80c01b3f5f6b1f9.svg",
-    "main.566b3bba.css.map": "/pokemon-app/static/css/main.566b3bba.css.map",
-    "main.c92e4be1.js.map": "/pokemon-app/static/js/main.c92e4be1.js.map"
+    "static/media/remove-bin.svg": "/pokemon-app/static/media/remove-bin.7e4362aa148cfddedfcf.svg",
+    "static/media/minimize.svg": "/pokemon-app/static/media/minimize.5c5869a81bc51e7ee7ae.svg",
+    "static/media/like-remove.svg": "/pokemon-app/static/media/like-remove.d545220593f87fff088e.svg",
+    "static/media/maximize.svg": "/pokemon-app/static/media/maximize.21fcea6a1ede395210f9.svg",
+    "static/media/like.svg": "/pokemon-app/static/media/like.8f292184dae9206bfd51.svg",
+    "static/media/like-active.svg": "/pokemon-app/static/media/like-active.c34fb4348e945d6a21bb.svg",
+    "main.c71d2bfc.css.map": "/pokemon-app/static/css/main.c71d2bfc.css.map",
+    "main.7ee19dec.js.map": "/pokemon-app/static/js/main.7ee19dec.js.map"
   },
   "entrypoints": [
-    "static/css/main.566b3bba.css",
-    "static/js/main.c92e4be1.js"
+    "static/css/main.c71d2bfc.css",
+    "static/js/main.7ee19dec.js"
   ]
 }
