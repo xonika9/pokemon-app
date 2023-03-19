@@ -93,7 +93,6 @@ function App() {
 
   const handleAddFavorite = (pokemon) => {
     setFavorites([...favorites, { name: pokemon.name, image: pokemon.image }]);
-    console.log(favorites);
   };
 
   const handleRemoveFavorite = (pokemon) => {
