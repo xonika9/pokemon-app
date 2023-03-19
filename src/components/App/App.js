@@ -13,7 +13,9 @@ function App() {
   const [sortOrder, setSortOrder] = useState('');
   const [numCards, setNumCards] = useState(20);
   const [searchTerm, setSearchTerm] = useState('');
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem('favorites')) || [],
+  );
 
   useEffect(() => {
     async function fetchData() {
@@ -37,6 +39,10 @@ function App() {
     }
     fetchData();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
 
   const sortingFunctions = useMemo(
     () => ({
