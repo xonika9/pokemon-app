@@ -9,8 +9,8 @@ function FavoriteCard({ favorites, handleRemoveFavorite }) {
             <img src={pokemon.image} alt={pokemon.name} />
           </div>
 
-          <div className="pokemon-details">
-            <div className="card-header">
+          <div className="pokemon-details fav-details">
+            <div className="card-header fav-card-header">
               <button
                 className="card-like card-like-save card-like-active"
                 onClick={() => handleRemoveFavorite(pokemon)}

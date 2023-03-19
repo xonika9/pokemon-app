@@ -2,6 +2,14 @@
   width: 110px;
 }
 
+.fav-details {
+  margin: 0;
+}
+
+.fav-card-header {
+  margin: 0;
+}
+
 .fav-image img {
   height: 80px;
 }
