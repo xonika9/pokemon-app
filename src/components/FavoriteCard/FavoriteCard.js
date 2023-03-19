@@ -1,5 +1,4 @@
 import './FavoriteCard.css';
-import LazyLoad from 'parm-react-lazyload';
 
 function FavoriteCard({ favorites, handleRemoveFavorite }) {
   return (
@@ -7,9 +6,7 @@ function FavoriteCard({ favorites, handleRemoveFavorite }) {
       {favorites.map((pokemon, index) => (
         <div className="pokemon-card fav-card" key={index}>
           <div className="pokemon-image fav-image">
-            <LazyLoad height={200}>
-              <img src={pokemon.image} alt={pokemon.name} />
-            </LazyLoad>
+            <img src={pokemon.image} alt={pokemon.name} />
           </div>
 
           <div className="pokemon-details">

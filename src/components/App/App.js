@@ -16,6 +16,7 @@ function App() {
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem('favorites')) || [],
   );
+  const [minimized, setMinimized] = useState(false);
 
   useEffect(() => {
     const storedPokemonData = JSON.parse(localStorage.getItem('pokemonData'));
@@ -122,6 +123,8 @@ function App() {
       <FavoriteCardList
         favorites={favorites}
         handleRemoveFavorite={handleRemoveFavorite}
+        minimized={minimized}
+        setMinimized={setMinimized}
       />
       <PokemonCardList
         loading={loading}

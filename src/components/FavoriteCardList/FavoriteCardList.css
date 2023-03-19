@@ -1,19 +1,49 @@
-.fav-container {
+.favorites-list {
   position: fixed;
   right: 20px;
   bottom: 75px;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  max-width: 458px;
+  padding: 1rem;
+  max-width: 474px;
   border: none;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.favorites-list.minimized {
+  display: none;
+}
+
+.fav-button {
+  position: fixed;
+  right: 20px;
+  bottom: 75px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.fav-min-button {
+  background: url("../../images/maximize.svg") no-repeat 50%;
+  background-size: contain;
+}
+
+.fav-max-button {
+  background: url("../../images/minimize.svg") no-repeat 50%;
+  background-size: contain;
+}
+
+.fav-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
 @media only screen and (max-width: 768px) {
-  .fav-container {
-    max-width: 300px;
+  .favorites-list {
+    max-width: 268px;
   }
 }
