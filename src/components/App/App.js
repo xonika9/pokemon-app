@@ -18,26 +18,37 @@ function App() {
   );
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(
-          'https://pokeapi.co/api/v2/pokemon?limit=1500',
-          { cache: true },
-        );
-        const data = response.data.results;
-        const pokemonData = await Promise.all(
-          data.map(async (pokemon) => {
-            const pokemonResponse = await axios.get(pokemon.url);
-            return pokemonResponse.data;
-          }),
-        );
-        setPokemonData(pokemonData);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
+    const storedPokemonData = JSON.parse(localStorage.getItem('pokemonData'));
+    if (storedPokemonData) {
+      setPokemonData(storedPokemonData);
+      setLoading(false);
+    } else {
+      async function fetchData() {
+        try {
+          const response = await axios.get(
+            'https://pokeapi.co/api/v2/pokemon?limit=1500',
+            { cache: true },
+          );
+          const data = response.data.results;
+          const pokemonData = await Promise.all(
+            data.map(async (pokemon) => {
+              const pokemonResponse = await axios.get(pokemon.url);
+              return {
+                name: pokemonResponse.data.name,
+                image: pokemonResponse.data.sprites.front_default,
+                stats: pokemonResponse.data.stats,
+              };
+            }),
+          );
+          setPokemonData(pokemonData);
+          setLoading(false);
+          localStorage.setItem('pokemonData', JSON.stringify(pokemonData));
+        } catch (error) {
+          console.log(error);
+        }
       }
+      fetchData();
     }
-    fetchData();
   }, []);
 
   useEffect(() => {
@@ -80,7 +91,8 @@ function App() {
   };
 
   const handleAddFavorite = (pokemon) => {
-    setFavorites([...favorites, pokemon]);
+    setFavorites([...favorites, { name: pokemon.name, image: pokemon.image }]);
+    console.log(favorites);
   };
 
   const handleRemoveFavorite = (pokemon) => {

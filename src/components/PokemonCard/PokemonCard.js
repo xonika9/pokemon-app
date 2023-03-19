@@ -13,7 +13,7 @@ function PokemonCard({
         <div className="pokemon-card" key={index}>
           <div className="pokemon-image">
             <LazyLoad height={200}>
-              <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+              <img src={pokemon.image} alt={pokemon.name} />
             </LazyLoad>
           </div>
 
