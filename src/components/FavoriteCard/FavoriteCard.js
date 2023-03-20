@@ -8,7 +8,7 @@ function FavoriteCard({ favorites, handleRemoveFavorite }) {
           className="flex w-32 flex-col justify-between rounded bg-white p-2 shadow-md"
           key={index}
         >
-          <div className="fav-image flex justify-center overflow-hidden">
+          <div className="flex justify-center overflow-hidden">
             <img
               src={pokemon.image}
               alt={pokemon.name}
