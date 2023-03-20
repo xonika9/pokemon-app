@@ -130,7 +130,7 @@ function App() {
   );
 
   return (
-    <Router>
+    <Router basename="/pokemon-app">
       <div className="app">
         <Header
           sortOrder={sortOrder}
@@ -143,7 +143,7 @@ function App() {
 
         <Routes>
           <Route
-            path="/pokemon-app/"
+            path="/"
             element={
               <React.Fragment>
                 <FavoriteCardList
@@ -171,7 +171,7 @@ function App() {
             }
           />
           <Route
-            path="/pokemon-app/compare"
+            path="/compare"
             element={
               <Comparison
                 comparisonList={comparisonList}
