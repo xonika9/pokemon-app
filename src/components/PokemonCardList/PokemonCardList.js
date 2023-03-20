@@ -7,6 +7,8 @@ function PokemonCardList({
   favorites,
   handleAddFavorite,
   handleRemoveFavorite,
+  handleToggleCompare,
+  comparisonList,
 }) {
   return (
     <>
@@ -19,6 +21,8 @@ function PokemonCardList({
             favorites={favorites}
             handleAddFavorite={handleAddFavorite}
             handleRemoveFavorite={handleRemoveFavorite}
+            handleToggleCompare={handleToggleCompare}
+            comparisonList={comparisonList}
           />
         </div>
       )}

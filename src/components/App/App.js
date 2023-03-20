@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+
 import axios from 'axios';
 import './App.css';
 
@@ -6,6 +8,7 @@ import Header from '../Header/Header';
 import PokemonCardList from '../PokemonCardList/PokemonCardList';
 import FavoriteCardList from '../FavoriteCardList/FavoriteCardList';
 import MoreButton from '../MoreButton/MoreButton';
+import Comparison from '../Comparison/Comparison';
 
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -17,6 +20,9 @@ function App() {
     JSON.parse(localStorage.getItem('favorites')) || [],
   );
   const [minimized, setMinimized] = useState(true);
+  const [comparisonList, setComparisonList] = useState(
+    JSON.parse(localStorage.getItem('comparisonList')) || [],
+  );
 
   useEffect(() => {
     const storedPokemonData = JSON.parse(localStorage.getItem('pokemonData'));
@@ -55,6 +61,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
+
+  useEffect(() => {
+    localStorage.setItem('comparisonList', JSON.stringify(comparisonList));
+  }, [comparisonList]);
 
   const sortingFunctions = useMemo(
     () => ({
@@ -110,35 +120,62 @@ function App() {
     [numCards, filteredPokemon],
   );
 
+  const handleToggleCompare = (pokemon) => {
+    console.log(comparisonList);
+    if (comparisonList.some((p) => p.name === pokemon.name)) {
+      setComparisonList(comparisonList.filter((p) => p.name !== pokemon.name));
+    } else {
+      setComparisonList([...comparisonList, pokemon]);
+    }
+  };
+
   return (
-    <div className="app">
-      <Header
-        sortOrder={sortOrder}
-        handleSortChange={handleSortChange}
-        handleSearchChange={handleSearchChange}
-        searchTerm={searchTerm}
-        handleClearSearch={handleClearSearch}
-      />
-      <FavoriteCardList
-        favorites={favorites}
-        handleRemoveFavorite={handleRemoveFavorite}
-        minimized={minimized}
-        setMinimized={setMinimized}
-        setFavorites={setFavorites}
-      />
-      <PokemonCardList
-        loading={loading}
-        visiblePokemon={visiblePokemon}
-        favorites={favorites}
-        handleAddFavorite={handleAddFavorite}
-        handleRemoveFavorite={handleRemoveFavorite}
-      />
-      <MoreButton
-        numCards={numCards}
-        filteredPokemon={filteredPokemon}
-        addCards={addCards}
-      />
-    </div>
+    <Router>
+      <div className="app">
+        <Header
+          sortOrder={sortOrder}
+          handleSortChange={handleSortChange}
+          handleSearchChange={handleSearchChange}
+          searchTerm={searchTerm}
+          handleClearSearch={handleClearSearch}
+          comparisonList={comparisonList}
+        />
+        <FavoriteCardList
+          favorites={favorites}
+          handleRemoveFavorite={handleRemoveFavorite}
+          minimized={minimized}
+          setMinimized={setMinimized}
+          setFavorites={setFavorites}
+        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <React.Fragment>
+                <PokemonCardList
+                  loading={loading}
+                  visiblePokemon={visiblePokemon}
+                  favorites={favorites}
+                  handleAddFavorite={handleAddFavorite}
+                  handleRemoveFavorite={handleRemoveFavorite}
+                  handleToggleCompare={handleToggleCompare}
+                  comparisonList={comparisonList}
+                />
+                <MoreButton
+                  numCards={numCards}
+                  filteredPokemon={filteredPokemon}
+                  addCards={addCards}
+                />
+              </React.Fragment>
+            }
+          />
+          <Route
+            path="/compare"
+            element={<Comparison comparisonList={comparisonList} />}
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
