@@ -16,7 +16,7 @@ function FavoriteCardMin({ favorites, handleRemoveFavorite }) {
             />
           </div>
           <button
-            className="card-like card-like-save card-like-active absolute top-0 right-0 h-8 w-8 border-none bg-transparent bg-no-repeat transition-all duration-300 focus:outline-none"
+            className="card-like-save card-like-active absolute top-0 right-0 h-8 w-8 border-none bg-transparent bg-no-repeat transition-all duration-300 focus:outline-none"
             onClick={() => handleRemoveFavorite(pokemon)}
           ></button>
         </div>

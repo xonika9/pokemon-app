@@ -18,7 +18,7 @@ function FavoriteCard({ favorites, handleRemoveFavorite }) {
           <div className="text-center">
             <div className="flex items-center justify-center">
               <button
-                className="card-like card-like-save card-like-active h-8 w-8 border-none bg-transparent bg-no-repeat transition-all duration-300 focus:outline-none"
+                className="card-like-save card-like-active h-8 w-8 border-none bg-transparent bg-no-repeat transition-all duration-300 focus:outline-none"
                 onClick={() => handleRemoveFavorite(pokemon)}
               ></button>
               <h2 className="text-center text-base font-bold capitalize text-black">
