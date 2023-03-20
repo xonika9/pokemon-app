@@ -16,32 +16,37 @@ const Comparison = ({
   ];
 
   return (
-    <div className="comparison-container">
-      <div className="comparison-heading">
-        <h2 className="comparison-title">Comparison</h2>
+    <div className="flex flex-col items-center overflow-auto pt-4">
+      <div className="m-5 flex gap-3">
+        <h2 className="text-lg">Comparison</h2>
         {comparisonList.length > 0 && (
           <button
             onClick={() => setComparisonList([])}
-            className="comp-clear"
+            className="comp-clear h-7 w-7 cursor-pointer border-none bg-contain bg-no-repeat text-center"
           ></button>
         )}
       </div>
 
-      <div className="comparison-table-container">
-        <table>
+      <div className="mt-4 max-w-full overflow-x-auto">
+        <table className="w-full border-collapse">
           <thead>
             <tr>
-              <th>Stat</th>
+              <th className="border border-solid border-gray-500 bg-green-100 p-2 text-center capitalize">
+                Stat
+              </th>
               {comparisonList.map((pokemon) => (
-                <th key={pokemon.name}>
+                <th
+                  key={pokemon.name}
+                  className="sticky border border-solid border-gray-500 bg-blue-100 p-2 text-center capitalize"
+                >
                   <button
-                    className="card-compare card-compare-checked comp-tab"
+                    className="card-compare-checked absolute top-0 right-0 m-3 mx-2 h-5 w-5 cursor-pointer border-none bg-none bg-contain bg-no-repeat p-0 text-center transition-all duration-300"
                     onClick={() => handleToggleCompare(pokemon)}
                   ></button>
                   <img
                     src={pokemon.image}
                     alt={pokemon.name}
-                    className="comparison-image"
+                    className="h-28 w-28 object-contain"
                   />
                   {pokemon.name}
                 </th>
@@ -51,9 +56,16 @@ const Comparison = ({
           <tbody>
             {statsLabels.map((statName, index) => (
               <tr key={statName}>
-                <td>{statName}</td>
+                <td className="sticky left-0 border border-solid border-gray-500 bg-green-100 p-2 text-center ">
+                  {statName}
+                </td>
                 {comparisonList.map((pokemon) => (
-                  <td key={pokemon.name}>{pokemon.stats[index].base_stat}</td>
+                  <td
+                    key={pokemon.name}
+                    className="border border-solid border-gray-500 p-2 text-center"
+                  >
+                    {pokemon.stats[index].base_stat}
+                  </td>
                 ))}
               </tr>
             ))}

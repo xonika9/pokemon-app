@@ -13,9 +13,11 @@ function PokemonCardList({
   return (
     <>
       {loading ? (
-        <p className="loading">Loading...</p>
+        <p className="flex h-full items-center justify-center text-lg text-gray-900">
+          Loading...
+        </p>
       ) : (
-        <div className="pokemon-container">
+        <div className="pokemon-container grid gap-4 p-4">
           <PokemonCard
             visiblePokemon={visiblePokemon}
             favorites={favorites}

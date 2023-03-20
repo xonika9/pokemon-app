@@ -1,41 +1,23 @@
-.favorites-list {
-  position: fixed;
-  right: 0;
-  bottom: 75px;
-  padding: 1rem;
-  border: none;
-  border-radius: 5px;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.favorites-list-minimized {
+.fav-list-minimized {
   padding: 0.5rem 2rem 0.5rem 0.5rem;
-  background-color: transparent;
   box-shadow: none;
 }
 
-.favorites-list-maximized {
-  max-width: 474px;
+.fav-list-maximized {
+  max-width: 464px;
 }
 
-.remove-all-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 30px;
-  height: 30px;
-  border: none;
-  background: url("../../images/remove-bin.svg") no-repeat 50%;
-  background-size: contain;
-  text-align: center;
+.clear-fav-button {
+  background-image: url("../../images/remove-bin.svg");
+  cursor: pointer;
+}
+
+.clear-fav-button-min {
+  background-image: url("../../images/remove-bin.svg");
   cursor: pointer;
 }
 
 .fav-button {
-  position: fixed;
-  right: 0;
-  bottom: 75px;
   padding: 0;
   width: 30px;
   height: 30px;
@@ -45,13 +27,11 @@
 }
 
 .fav-min-button {
-  background: url("../../images/minimize.svg") no-repeat 50%;
-  background-size: contain;
+  background-image: url("../../images/minimize.svg");
 }
 
 .fav-max-button {
-  background: url("../../images/maximize.svg") no-repeat 50%;
-  background-size: contain;
+  background-image: url("../../images/maximize.svg");
 }
 
 .fav-container {
@@ -69,10 +49,8 @@
   grid-gap: 0.5rem;
 }
 
-
-
 @media only screen and (max-width: 768px) {
-  .favorites-list-maximized {
-    max-width: 284px;
+  .fav-list-maximized {
+    max-width: 322px;
   }
 }

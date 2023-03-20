@@ -131,7 +131,7 @@ function App() {
 
   return (
     <Router basename="/pokemon-app">
-      <div className="app">
+      <div className="bg-gray-100 font-sans">
         <Header
           sortOrder={sortOrder}
           handleSortChange={handleSortChange}
