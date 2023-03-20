@@ -12,18 +12,18 @@ function FavoriteCardList({
   return (
     <>
       {minimized && (
-        <div className="favorites-list favorites-list-minimized">
+        <div className="fav-list-minimized fixed bottom-16 right-0 shadow-md">
           {favorites.length > 0 && (
             <button
               onClick={() => setFavorites([])}
-              className="remove-all-button remove-all-button-min"
+              className="clear-fav-button-min absolute top-0 right-0 h-7 w-7 bg-contain bg-center bg-no-repeat"
             ></button>
           )}
           <button
             onClick={() => setMinimized(false)}
-            className="fav-button fav-max-button"
+            className="fav-max-button fixed bottom-16 right-0 h-7 w-7 bg-contain bg-center bg-no-repeat"
           ></button>
-          <div className="pokemon-container fav-container fav-container-min">
+          <div className="fav-container-min flex flex-col-reverse items-start">
             <FavoriteCardMin
               favorites={favorites}
               handleRemoveFavorite={handleRemoveFavorite}
@@ -32,18 +32,18 @@ function FavoriteCardList({
         </div>
       )}
       {!minimized && (
-        <div className="favorites-list favorites-list-maximized">
+        <div className="fav-list-maximized fixed bottom-16 right-0 max-w-md rounded-md border bg-white p-4 shadow-md">
           {favorites.length > 0 && (
             <button
               onClick={() => setFavorites([])}
-              className="remove-all-button"
+              className="clear-fav-button absolute top-0 right-0 h-7 w-7 bg-contain bg-center bg-no-repeat"
             ></button>
           )}
           <button
             onClick={() => setMinimized(true)}
-            className="fav-button fav-min-button"
+            className="fav-min-button fixed bottom-16 right-0 h-7 w-7 bg-contain bg-center bg-no-repeat"
           ></button>
-          <div className="pokemon-container fav-container">
+          <div className="fav-container flex flex-wrap justify-center gap-3">
             <FavoriteCard
               favorites={favorites}
               handleRemoveFavorite={handleRemoveFavorite}
