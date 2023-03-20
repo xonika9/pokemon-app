@@ -12,28 +12,37 @@ const Comparison = ({ comparisonList }) => {
   ];
 
   return (
-    <div>
+    <div className="comparison-container">
       <h2>Comparison</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Characteristic</th>
-            {comparisonList.map((pokemon) => (
-              <th key={pokemon.name}>{pokemon.name}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {statsLabels.map((statName, index) => (
-            <tr key={statName}>
-              <td>{statName}</td>
+      <div className="comparison-table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Stat</th>
               {comparisonList.map((pokemon) => (
-                <td key={pokemon.name}>{pokemon.stats[index].base_stat}</td>
+                <th key={pokemon.name}>
+                  <img
+                    src={pokemon.image}
+                    alt={pokemon.name}
+                    className="comparison-image"
+                  />
+                  {pokemon.name}
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {statsLabels.map((statName, index) => (
+              <tr key={statName}>
+                <td>{statName}</td>
+                {comparisonList.map((pokemon) => (
+                  <td key={pokemon.name}>{pokemon.stats[index].base_stat}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
