@@ -143,7 +143,7 @@ function App() {
 
         <Routes>
           <Route
-            path="/"
+            path="/pokemon-app/"
             element={
               <React.Fragment>
                 <FavoriteCardList
@@ -171,7 +171,7 @@ function App() {
             }
           />
           <Route
-            path="/compare"
+            path="/pokemon-app/compare"
             element={
               <Comparison
                 comparisonList={comparisonList}
