@@ -3,6 +3,28 @@
   overflow: auto;
   align-items: center;
   flex-direction: column;
+  padding-top: 15px;
+}
+
+.comparison-heading {
+  display: flex;
+  gap: 10px;
+  margin: 20px;
+}
+
+.comparison-title {
+  margin: 0;
+  padding: 0;
+}
+
+.comp-clear {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: url("../../images/remove-bin.svg") no-repeat 50%;
+  background-size: contain;
+  text-align: center;
+  cursor: pointer;
 }
 
 .comparison-table-container {
@@ -13,10 +35,16 @@
 
 .comparison-image {
   display: block;
-  margin-top: 0.5rem;
   width: 110px;
   height: 110px;
   object-fit: contain;
+}
+
+.comp-tab {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
 }
 
 

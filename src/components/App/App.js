@@ -140,18 +140,19 @@ function App() {
           handleClearSearch={handleClearSearch}
           comparisonList={comparisonList}
         />
-        <FavoriteCardList
-          favorites={favorites}
-          handleRemoveFavorite={handleRemoveFavorite}
-          minimized={minimized}
-          setMinimized={setMinimized}
-          setFavorites={setFavorites}
-        />
+
         <Routes>
           <Route
             path="/"
             element={
               <React.Fragment>
+                <FavoriteCardList
+                  favorites={favorites}
+                  handleRemoveFavorite={handleRemoveFavorite}
+                  minimized={minimized}
+                  setMinimized={setMinimized}
+                  setFavorites={setFavorites}
+                />
                 <PokemonCardList
                   loading={loading}
                   visiblePokemon={visiblePokemon}
@@ -171,7 +172,13 @@ function App() {
           />
           <Route
             path="/compare"
-            element={<Comparison comparisonList={comparisonList} />}
+            element={
+              <Comparison
+                comparisonList={comparisonList}
+                handleToggleCompare={handleToggleCompare}
+                setComparisonList={setComparisonList}
+              />
+            }
           />
         </Routes>
       </div>

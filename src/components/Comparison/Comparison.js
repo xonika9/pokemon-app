@@ -1,7 +1,11 @@
 import React from 'react';
 import './Comparison.css';
 
-const Comparison = ({ comparisonList }) => {
+const Comparison = ({
+  comparisonList,
+  handleToggleCompare,
+  setComparisonList,
+}) => {
   const statsLabels = [
     'HP',
     'Attack',
@@ -13,7 +17,16 @@ const Comparison = ({ comparisonList }) => {
 
   return (
     <div className="comparison-container">
-      <h2>Comparison</h2>
+      <div className="comparison-heading">
+        <h2 className="comparison-title">Comparison</h2>
+        {comparisonList.length > 0 && (
+          <button
+            onClick={() => setComparisonList([])}
+            className="comp-clear"
+          ></button>
+        )}
+      </div>
+
       <div className="comparison-table-container">
         <table>
           <thead>
@@ -21,6 +34,10 @@ const Comparison = ({ comparisonList }) => {
               <th>Stat</th>
               {comparisonList.map((pokemon) => (
                 <th key={pokemon.name}>
+                  <button
+                    className="card-compare card-compare-checked comp-tab"
+                    onClick={() => handleToggleCompare(pokemon)}
+                  ></button>
                   <img
                     src={pokemon.image}
                     alt={pokemon.name}
