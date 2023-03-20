@@ -111,15 +111,6 @@ function App() {
     );
   };
 
-  const filteredPokemon = sortedPokemon.filter((pokemon) =>
-    pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
-
-  const visiblePokemon = useMemo(
-    () => filteredPokemon.slice(0, numCards),
-    [numCards, filteredPokemon],
-  );
-
   const handleToggleCompare = (pokemon) => {
     console.log(comparisonList);
     if (comparisonList.some((p) => p.name === pokemon.name)) {
@@ -128,6 +119,15 @@ function App() {
       setComparisonList([...comparisonList, pokemon]);
     }
   };
+
+  const filteredPokemon = sortedPokemon.filter((pokemon) =>
+    pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
+  const visiblePokemon = useMemo(
+    () => filteredPokemon.slice(0, numCards),
+    [numCards, filteredPokemon],
+  );
 
   return (
     <Router>
