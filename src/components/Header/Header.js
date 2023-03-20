@@ -11,9 +11,9 @@ function Header({
 }) {
   return (
     <header className="app-header">
-      <Link to="/" className="logo header-logo" />
+      <Link to="/pokemon-app" className="logo header-logo" />
       <h1 className="app-title">x9Pokémon</h1>
-      <Link to="/compare" className="header-link">
+      <Link to="/pokemon-app/compare" className="header-link">
         Compare {comparisonList.length} pokemons
       </Link>
       <div className="search-container">
