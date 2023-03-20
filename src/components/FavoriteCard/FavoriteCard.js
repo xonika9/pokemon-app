@@ -4,27 +4,27 @@ function FavoriteCard({ favorites, handleRemoveFavorite }) {
   return (
     <>
       {favorites.map((pokemon, index) => (
-        <div className="pokemon-card fav-card" key={index}>
-          <div className="pokemon-image fav-image">
-            <img src={pokemon.image} alt={pokemon.name} />
+        <div
+          className="flex w-32 flex-col justify-between rounded bg-white p-2 shadow-md"
+          key={index}
+        >
+          <div className="fav-image flex justify-center overflow-hidden">
+            <img
+              src={pokemon.image}
+              alt={pokemon.name}
+              className="h-16 object-contain"
+            />
           </div>
-
-          <div className="pokemon-details fav-details">
-            <div className="card-header fav-card-header">
+          <div className="text-center">
+            <div className="flex items-center justify-center">
               <button
-                className="card-like card-like-save card-like-active"
+                className="card-like card-like-save card-like-active h-8 w-8 border-none bg-transparent bg-no-repeat transition-all duration-300 focus:outline-none"
                 onClick={() => handleRemoveFavorite(pokemon)}
               ></button>
-              <h2 className="pokemon-name fav-name">{pokemon.name}</h2>
+              <h2 className="text-center text-base font-bold capitalize text-black">
+                {pokemon.name}
+              </h2>
             </div>
-            {/* <div className="pokemon-stats">
-              <p>HP: {pokemon.stats[0].base_stat}</p>
-              <p>Attack: {pokemon.stats[1].base_stat}</p>
-              <p>Defense: {pokemon.stats[2].base_stat}</p>
-              <p>Special Attack: {pokemon.stats[3].base_stat}</p>
-              <p>Special Defense: {pokemon.stats[4].base_stat}</p>
-              <p>Speed: {pokemon.stats[5].base_stat}</p>
-            </div> */}
           </div>
         </div>
       ))}
