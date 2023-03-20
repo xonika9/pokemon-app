@@ -1,0 +1,75 @@
+.comparison-container {
+  display: flex;
+  overflow: auto;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 15px;
+}
+
+.comparison-heading {
+  display: flex;
+  gap: 10px;
+  margin: 20px;
+}
+
+.comparison-title {
+  margin: 0;
+  padding: 0;
+}
+
+.comp-clear {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: url("../../images/remove-bin.svg") no-repeat 50%;
+  background-size: contain;
+  text-align: center;
+  cursor: pointer;
+}
+
+.comparison-table-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+  max-width: 100%;
+}
+
+.comparison-image {
+  display: block;
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.comp-tab {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: #f2f2f2;
+}

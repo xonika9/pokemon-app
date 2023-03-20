@@ -6,6 +6,8 @@ function PokemonCard({
   favorites,
   handleAddFavorite,
   handleRemoveFavorite,
+  handleToggleCompare,
+  comparisonList,
 }) {
   return (
     <>
@@ -16,24 +18,35 @@ function PokemonCard({
               <img src={pokemon.image} alt={pokemon.name} />
             </LazyLoad>
           </div>
-
           <div className="pokemon-details">
             <div className="card-header">
               {!favorites.some(
                 (favorite) => favorite.name === pokemon.name,
               ) && (
                 <button
-                  className="card-like card-like-save "
+                  className="card-like card-like-save"
                   onClick={() => handleAddFavorite(pokemon)}
                 ></button>
               )}
               {favorites.some((favorite) => favorite.name === pokemon.name) && (
                 <button
-                  className="card-like card-like-save card-like-active"
+                  className="card-like card-like-active"
                   onClick={() => handleRemoveFavorite(pokemon)}
                 ></button>
               )}
               <h2 className="pokemon-name">{pokemon.name}</h2>
+              {!comparisonList.some((p) => p.name === pokemon.name) && (
+                <button
+                  className="card-compare card-compare-unchecked"
+                  onClick={() => handleToggleCompare(pokemon)}
+                ></button>
+              )}
+              {comparisonList.some((p) => p.name === pokemon.name) && (
+                <button
+                  className="card-compare card-compare-checked"
+                  onClick={() => handleToggleCompare(pokemon)}
+                ></button>
+              )}
             </div>
             <div className="pokemon-stats">
               <p>HP: {pokemon.stats[0].base_stat}</p>

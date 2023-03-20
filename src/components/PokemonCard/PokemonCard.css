@@ -23,11 +23,11 @@
   background: none;
   text-align: center;
   cursor: pointer;
+  transition: background-image 0.3s ease;
 }
 
 .card-like-save {
   background: url("../../images/like.svg") no-repeat 50%;
-  transition: background-image 0.3s ease;
 }
 
 .card-like-active {
@@ -36,7 +36,6 @@
 
 .card-like-active:hover {
   background: url("../../images/like-remove.svg") no-repeat 50%;
-  transition: background-image 0.3s ease;
 }
 
 .pokemon-image {
@@ -77,6 +76,30 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+.card-compare {
+  margin-right: 7px;
+  margin-left: 7px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  text-align: center;
+  cursor: pointer;
+  transition: background-image 0.3s ease;
+}
+
+.card-compare-unchecked {
+  background: url("../../images/unchecked-icon.svg") no-repeat 50%;
+  background-size: contain;
+}
+
+.card-compare-checked {
+  background: url("../../images/checked-icon.svg") no-repeat 50%;
+  background-size: contain;
+}
+
 
 @media only screen and (max-width: 768px) {
   .pokemon-card {
