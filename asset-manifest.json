@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/pokemon-app/static/css/main.c4974068.css",
-    "main.js": "/pokemon-app/static/js/main.5f7cb793.js",
+    "main.css": "/pokemon-app/static/css/main.c4917ac2.css",
+    "main.js": "/pokemon-app/static/js/main.90dc2cb3.js",
     "static/media/poke-logo.png": "/pokemon-app/static/media/poke-logo.8b6d0236bf0a613304f7.png",
     "index.html": "/pokemon-app/index.html",
-    "static/media/clear-button.svg": "/pokemon-app/static/media/clear-button.20aa6e2282edae972819.svg",
     "static/media/checked-icon.svg": "/pokemon-app/static/media/checked-icon.666055f85faf232a040e.svg",
     "static/media/unchecked-icon.svg": "/pokemon-app/static/media/unchecked-icon.3bac030a03ac9427abe9.svg",
-    "static/media/like-remove.svg": "/pokemon-app/static/media/like-remove.9ebd6be5fee68fa49513.svg",
+    "static/media/like-transp.svg": "/pokemon-app/static/media/like-transp.e4de7c720a86b28f268d.svg",
+    "static/media/like-red.svg": "/pokemon-app/static/media/like-red.85b9c8a524af5f93d289.svg",
+    "static/media/clear-button.svg": "/pokemon-app/static/media/clear-button.ddae9b8830db436ba713.svg",
     "static/media/remove-bin.svg": "/pokemon-app/static/media/remove-bin.286696378e38cc58eb81.svg",
-    "static/media/like.svg": "/pokemon-app/static/media/like.8f292184dae9206bfd51.svg",
-    "static/media/like-active.svg": "/pokemon-app/static/media/like-active.c34fb4348e945d6a21bb.svg",
     "static/media/minimize.svg": "/pokemon-app/static/media/minimize.1b3b073b114991ed7ab3.svg",
     "static/media/maximize.svg": "/pokemon-app/static/media/maximize.dca77ab6e9922292610b.svg",
-    "main.c4974068.css.map": "/pokemon-app/static/css/main.c4974068.css.map",
-    "main.5f7cb793.js.map": "/pokemon-app/static/js/main.5f7cb793.js.map"
+    "main.c4917ac2.css.map": "/pokemon-app/static/css/main.c4917ac2.css.map",
+    "main.90dc2cb3.js.map": "/pokemon-app/static/js/main.90dc2cb3.js.map"
   },
   "entrypoints": [
-    "static/css/main.c4974068.css",
-    "static/js/main.5f7cb793.js"
+    "static/css/main.c4917ac2.css",
+    "static/js/main.90dc2cb3.js"
   ]
 }
