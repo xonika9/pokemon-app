@@ -17,7 +17,7 @@ function PokemonCardList({
           Loading...
         </p>
       ) : (
-        <div className="pokemon-container grid gap-4 p-4">
+        <ul className="grid grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-4 p-4 md:grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))]">
           <PokemonCard
             visiblePokemon={visiblePokemon}
             favorites={favorites}
@@ -26,7 +26,7 @@ function PokemonCardList({
             handleToggleCompare={handleToggleCompare}
             comparisonList={comparisonList}
           />
-        </div>
+        </ul>
       )}
     </>
   );
