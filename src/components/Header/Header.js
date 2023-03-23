@@ -10,10 +10,10 @@ function Header({
   comparisonList,
 }) {
   return (
-    <header className="app-header flex items-center justify-between bg-white p-4 text-gray-900 shadow-md">
+    <header className="flex flex-col items-center justify-between gap-5 bg-white p-4 text-gray-900 shadow-md md:flex-row">
       <Link
         to="/"
-        className="header-logo h-10 w-24 bg-contain bg-center bg-no-repeat"
+        className="bg-pokemon-logo h-10 w-24 bg-contain bg-center bg-no-repeat"
       ></Link>
       {/* <h1 className="text-2xl font-bold">x9Pokémon</h1> */}
       <Link
@@ -32,7 +32,7 @@ function Header({
         />
         {searchTerm && (
           <button
-            className="search-clear-button absolute right-2 h-4 w-4 cursor-pointer bg-contain bg-center bg-no-repeat"
+            className="bg-clear-button absolute right-2 h-4 w-4 cursor-pointer bg-contain bg-center bg-no-repeat"
             onClick={handleClearSearch}
           ></button>
         )}
