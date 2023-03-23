@@ -5,6 +5,7 @@ import axios from 'axios';
 import './App.css';
 
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import PokemonCardList from '../PokemonCardList/PokemonCardList';
 import FavoriteCardList from '../FavoriteCardList/FavoriteCardList';
 import MoreButton from '../MoreButton/MoreButton';
@@ -131,7 +132,7 @@ function App() {
 
   return (
     <Router basename="/pokemon-app">
-      <div className="bg-gray-100 font-sans">
+      <div className="min-h-screen bg-gray-100 text-center font-sans text-gray-900">
         <Header
           sortOrder={sortOrder}
           handleSortChange={handleSortChange}
@@ -140,7 +141,6 @@ function App() {
           handleClearSearch={handleClearSearch}
           comparisonList={comparisonList}
         />
-
         <Routes>
           <Route
             path="/"
@@ -181,6 +181,14 @@ function App() {
             }
           />
         </Routes>
+        <Footer
+          sortOrder={sortOrder}
+          handleSortChange={handleSortChange}
+          handleSearchChange={handleSearchChange}
+          searchTerm={searchTerm}
+          handleClearSearch={handleClearSearch}
+          comparisonList={comparisonList}
+        />
       </div>
     </Router>
   );
