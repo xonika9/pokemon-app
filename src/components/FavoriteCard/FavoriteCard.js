@@ -4,8 +4,8 @@ function FavoriteCard({ favorites, handleRemoveFavorite }) {
   return (
     <>
       {favorites.map((pokemon, index) => (
-        <div
-          className="flex w-32 flex-col justify-between rounded bg-white p-2 shadow-md"
+        <li
+          className="flex w-32 flex-col rounded bg-white p-2 shadow-md"
           key={index}
         >
           <div className="flex justify-center overflow-hidden">
@@ -15,18 +15,16 @@ function FavoriteCard({ favorites, handleRemoveFavorite }) {
               className="h-16 object-contain"
             />
           </div>
-          <div className="text-center">
-            <div className="flex items-center justify-center">
-              <button
-                className="card-like-save card-like-active h-8 w-8 border-none bg-transparent bg-no-repeat transition-all duration-300 focus:outline-none"
-                onClick={() => handleRemoveFavorite(pokemon)}
-              ></button>
-              <h2 className="text-center text-base font-bold capitalize text-black">
-                {pokemon.name}
-              </h2>
-            </div>
+          <div className="flex items-baseline justify-center gap-1">
+            <button
+              className="bg-like-red hover:bg-clear-button h-3 w-3 cursor-pointer border-none bg-transparent bg-contain bg-no-repeat text-center transition-all duration-300"
+              onClick={() => handleRemoveFavorite(pokemon)}
+            ></button>
+            <h2 className="text-center text-base font-bold capitalize text-black">
+              {pokemon.name}
+            </h2>
           </div>
-        </div>
+        </li>
       ))}
     </>
   );
