@@ -4,7 +4,7 @@ function FavoriteCardMin({ favorites, handleRemoveFavorite }) {
   return (
     <>
       {favorites.map((pokemon, index) => (
-        <div
+        <li
           className="relative flex w-16 flex-col justify-between rounded bg-white shadow-md"
           key={index}
         >
@@ -16,10 +16,10 @@ function FavoriteCardMin({ favorites, handleRemoveFavorite }) {
             />
           </div>
           <button
-            className="card-like-save card-like-active absolute top-0 right-0 h-8 w-8 border-none bg-transparent bg-no-repeat transition-all duration-300 focus:outline-none"
+            className="bg-like-red hover:bg-clear-button absolute top-0 right-0 m-1 h-3 w-3 bg-contain bg-no-repeat transition-all duration-300"
             onClick={() => handleRemoveFavorite(pokemon)}
           ></button>
-        </div>
+        </li>
       ))}
     </>
   );
